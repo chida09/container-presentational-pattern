@@ -2,7 +2,7 @@ import { useCallback } from "react";
 
 type Todo = {
   title: string;
-  description: string;
+  description?: string;
   dueDate: string;
 }
 

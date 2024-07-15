@@ -1,16 +1,16 @@
 /** @jsxImportSource @emotion/react */
 'use client'
 
-import { useForm } from "react-hook-form"
 import { Wrapper, Table, TaskAddButton, Td, Th, Thead, FormSubmitWrapper, TextInput, SectionTitle } from "./todo-list.style"
 import { useCallback } from "react";
 import { ErrorMessage } from '@hookform/error-message';
 import { ERROR_MESSAGE_STYLE } from "../../lib/styles";
+import { useTodoListPresenter } from "./todo-list.presenter";
 
 type Todo = {
   id: number;
   title: string;
-  description: string;
+  description?: string;
   dueDate: string;
   isCompleted: boolean;
 };
@@ -25,7 +25,12 @@ type Props = {
 export const TodoListComponent = (props: Props) => {
   const { todo, onSave } = props;
 
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<FormValue>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset
+  } = useTodoListPresenter()
 
   const onSubmit = useCallback((value: FormValue) => {
     onSave?.(value);
@@ -54,13 +59,13 @@ export const TodoListComponent = (props: Props) => {
             <tbody>
               <tr>
                 <Td>
-                  <TextInput id="title" type="text" {...register("title", { required: 'titleは必須です' })} placeholder="買い物に行く" />
+                  <TextInput id="title" type="text" {...register("title", { required: true })} placeholder="買い物に行く" />
                 </Td>
                 <Td>
                   <TextInput id="description" type="text" {...register("description")} placeholder="牛乳、卵を購入する" />
                 </Td>
                 <Td>
-                  <TextInput id="dueDate" type="date" {...register("dueDate", { required: 'dueDateは必須です' })} />
+                  <TextInput id="dueDate" type="date" {...register("dueDate", { required: true })} />
                 </Td>
               </tr>
             </tbody>
