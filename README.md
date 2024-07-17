@@ -1,17 +1,19 @@
-## Container/Presentationalパターン概要
+# Container/Presentationalパターン概要
  - Container: アプリケーションのロジックに関心を持ち、APIや状態管理ライブラリから取得したデータをPresentational Componentに渡す
  - Presentational: UIに関心を持ち、Propsで受け取ったデータをどのように表示するかのみを役割として持つ
  - 2 つのコンポーネントを組み合わせることで、アプリケーションロジックの処理とビューを分離することが可能になる
 
-### 利点
+## 利点
  - プレゼンテーションコンポーネントは、データを変更することなく表示するだけなので、再利用が容易になる
  - ロジックのテストであればContainer Component、UIのテストであればPresentational Componentといった具合に、それぞれのComponentに対して何をテストすれば良いかが明確になる
-
 
 ## 参考
  - [コンテナ・プレゼンテーションパターン｜フロントエンドのデザインパターン](https://zenn.dev/morinokami/books/learning-patterns-1/viewer/presentational-container-pattern)
  - [Container/Presentationalパターン再入門](https://zenn.dev/buyselltech/articles/9460c75b7cd8d1)
  - [Angular/React両方を経験して得られた堅牢なアプリケーション設計 - DEV Community](https://dev.to/puku0x/angular-react-2h4j)
+
+# GraphQL
+https://github.com/chida09/graphql-apollo-server で設定したschemaを参照
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
